@@ -18,7 +18,6 @@ public class Brick : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("TOUCH BRICK !!");
 
         // On la comptabilise pour le score
         // ...
