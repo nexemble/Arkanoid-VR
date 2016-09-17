@@ -13,4 +13,9 @@ public class RacketScript : MonoBehaviour {
 	void Update () {
 
     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("TOUCH RACKET !!");
+    }
 }
