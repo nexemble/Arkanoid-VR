@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RacketScript : MonoBehaviour {
+public class Racket : MonoBehaviour {
 
 
 	// Use this for initialization
