@@ -3,12 +3,13 @@ using System.Collections;
 
 public class Ball : MonoBehaviour
 {
-    Rigidbody rigid ;
+    Rigidbody rigid;
     bool isStillInObject;
     Vector3 defaultPosition;
 
     public Racket racket;
     public Brick brick;
+    public GameManager gameManager;
 
     // Use this for initialization
     void Start()
@@ -34,12 +35,23 @@ public class Ball : MonoBehaviour
                 rigid.velocity = Vector3.Reflect(rigid.velocity, other.transform.up);
                 this.isStillInObject = true;
             }
-        } else
-        {
-            if (other == brick)
-                Debug.Log("TOUCH2 BRICK !!");
-            rigid.velocity = Vector3.Reflect(rigid.velocity, other.transform.up);
         }
+        else if (other.gameObject.name == "Brick(Clone)")
+        {
+
+
+            Debug.Log("TOUCH2 BRICK !!");
+            if (this.isStillInObject == false)
+            {
+                rigid.velocity = Vector3.Reflect(rigid.velocity, other.transform.up);
+                this.isStillInObject = true;
+            }
+
+        }
+        else
+            rigid.velocity = Vector3.Reflect(rigid.velocity, other.transform.up);
+        //gameManager.Rumble();
+
     }
 
     void OnTriggerExit(Collider other)
@@ -56,4 +68,4 @@ public class Ball : MonoBehaviour
 
     }
 }
-   
+

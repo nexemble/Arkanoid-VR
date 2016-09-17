@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Valve.VR;
 
 public class GameManager : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class GameManager : MonoBehaviour {
     // Les objets
     public Ball ball;
     public BrickContainer brickContainer;
+    public SteamVR_Controller controller;
 
     // Variables
     public int nbColumns = 7;
@@ -43,5 +45,10 @@ public class GameManager : MonoBehaviour {
         // Reset the ball
         this.ball.Reset();
         this.brickContainer.Reset();
+    }
+
+    public void Rumble(ushort duration)
+    {
+        SteamVR_Controller.Input(1).TriggerHapticPulse(duration);
     }
 }

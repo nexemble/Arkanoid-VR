@@ -3,9 +3,10 @@ using System.Collections;
 
 public class Racket : MonoBehaviour {
 
+    public GameManager gameManager;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
  
 	}
 	
@@ -17,5 +18,6 @@ public class Racket : MonoBehaviour {
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("TOUCH RACKET !!");
+        gameManager.Rumble(2000);
     }
 }
